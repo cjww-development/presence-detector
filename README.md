@@ -1,11 +1,21 @@
 # presence-detector
 
-## Conda environment
-All environment dependencies are included in the `requirements.txt`.
+## How to run
+All environment dependencies are included in the `requirements.txt` file.
 
-To generate an environment from this file, run
-```python
+To generate a conda environment from this file, run
+```shell script
 conda create --name <env_name> --file requirements.txt
+```
+
+To activate the env
+```shell script
+conda activate <env_name>
+```
+
+To run the project
+```shell script
+python3 -m presencedetector
 ```
 
 ### License
