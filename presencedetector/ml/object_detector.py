@@ -12,19 +12,20 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from presencedetector.ml.object_detector import ObjectDetector
+from imageai.Detection import ObjectDetection
 from presencedetector.config.config_loader import ConfigLoader
 import os
 
 
-class App:
-    def __init__(self):
+class ObjectDetector:
+    def __init__(self, exec_path):
+        self.detector = ObjectDetection()
         self.config = ConfigLoader().conf
-        self.exec_path = os.getcwd()
-        self.objDetector = ObjectDetector(self.exec_path)
+        self.detector.setModelTypeAsRetinaNet()
+        self.detector.setModelPath(os.path.join(exec_path, self.config['obj-detector.model-path']))
+        self.detector.loadModel()
 
-    def run(self):
-        self.objDetector.detect_objects(
-            input_path=os.path.join(self.exec_path, self.config['obj-detector.input-path']),
-            output_path=os.path.join(self.exec_path, self.config['obj-detector.output-path'])
-        )
+    def detect_objects(self, input_path, output_path):
+        detections = self.detector.detectObjectsFromImage(input_image=input_path, output_image_path=output_path )
+        for obj in detections:
+            print(obj["name"], " : ", obj["percentage_probability"])

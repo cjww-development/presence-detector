@@ -12,19 +12,3 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from presencedetector.ml.object_detector import ObjectDetector
-from presencedetector.config.config_loader import ConfigLoader
-import os
-
-
-class App:
-    def __init__(self):
-        self.config = ConfigLoader().conf
-        self.exec_path = os.getcwd()
-        self.objDetector = ObjectDetector(self.exec_path)
-
-    def run(self):
-        self.objDetector.detect_objects(
-            input_path=os.path.join(self.exec_path, self.config['obj-detector.input-path']),
-            output_path=os.path.join(self.exec_path, self.config['obj-detector.output-path'])
-        )

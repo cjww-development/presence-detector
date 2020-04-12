@@ -130,3 +130,6 @@ dmypy.json
 
 # Jetbrains
 .idea
+
+# Models
+presencedetector/ml/models/*.h5
