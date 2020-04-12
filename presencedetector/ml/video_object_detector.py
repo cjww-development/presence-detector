@@ -12,20 +12,26 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from imageai.Detection import ObjectDetection
+
+from imageai.Detection import VideoObjectDetection
 from presencedetector.config.config_loader import ConfigLoader
 import os
 
 
-class ObjectDetector:
+class VideoObjectDetector:
     def __init__(self, exec_path):
-        self.detector = ObjectDetection()
+        self.exec_path = exec_path
+        self.detector = VideoObjectDetection()
         self.config = ConfigLoader().conf
         self.detector.setModelTypeAsRetinaNet()
-        self.detector.setModelPath(os.path.join(exec_path, self.config['obj-detector.model-path']))
+        self.detector.setModelPath(os.path.join(self.exec_path, self.config['obj-detector.model-path']))
         self.detector.loadModel()
 
-    def detect_objects(self, input_path, output_path):
-        detections = self.detector.detectObjectsFromImage(input_image=input_path, output_image_path=output_path )
-        for obj in detections:
-            print(obj["name"], " : ", obj["percentage_probability"])
+    def run_inference_on(self, camera):
+        self.detector.detectObjectsFromVideo(
+            camera_input=camera,
+            output_file_path=os.path.join(self.exec_path, self.config['obj-detector.output-path.video']),
+            frames_per_second=1,
+            log_progress=True,
+            minimum_percentage_probability=40
+        )

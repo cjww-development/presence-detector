@@ -133,3 +133,6 @@ dmypy.json
 
 # Models
 presencedetector/ml/models/*.h5
+presencedetector/ml/images/input/*.jpg
+presencedetector/ml/images/output/*.jpg
+presencedetector/ml/images/output/output.jpg-objects/*
