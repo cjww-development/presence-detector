@@ -31,7 +31,7 @@ class VideoObjectDetector:
         self.detector.detectObjectsFromVideo(
             camera_input=camera,
             output_file_path=os.path.join(self.exec_path, self.config['obj-detector.output-path.video']),
-            frames_per_second=1,
-            log_progress=True,
-            minimum_percentage_probability=40
+            frames_per_second=self.config['obj-detector.video.fps'],
+            log_progress=self.config['obj-detector.video.log-progress'],
+            minimum_percentage_probability=self.config['obj-detector.video.confidence']
         )
