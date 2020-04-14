@@ -12,8 +12,8 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from presencedetector.ml.static_object_detector import StaticObjectDetector
-from presencedetector.ml.video_object_detector import VideoObjectDetector
+from presencedetector.ml.objectdetection.static_object_detector import StaticObjectDetector
+from presencedetector.ml.objectdetection.video_object_detector import VideoObjectDetector
 from presencedetector.config.config_loader import ConfigLoader
 import os
 import cv2

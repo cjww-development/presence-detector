@@ -132,7 +132,11 @@ dmypy.json
 .idea
 
 # Models
-presencedetector/ml/models/*.h5
-presencedetector/ml/images/input/*.jpg
-presencedetector/ml/images/output/*.jpg
-presencedetector/ml/images/output/output.jpg-objects/*
+presencedetector/ml/objectdetection/models/*.h5
+presencedetector/ml/objectdetection/images/input/*.jpg
+presencedetector/ml/objectdetection/images/output/*.jpg
+presencedetector/ml/objectdetection/images/output/output.jpg-objects/*
+
+# Videos
+*.avi
+.avi
