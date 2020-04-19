@@ -137,6 +137,14 @@ presencedetector/ml/objectdetection/images/input/*.jpg
 presencedetector/ml/objectdetection/images/output/*.jpg
 presencedetector/ml/objectdetection/images/output/output.jpg-objects/*
 
+encodings.pickle
+
+presencedetector/ml/facerecognition/dataset
+presencedetector/ml/facerecognition/test
+
 # Videos
 *.avi
 .avi
+
+# App
+model.lock
